@@ -1,0 +1,14 @@
+function encryption(message) {
+  const wordsArray = message.split("")
+  const morseArray = new Array(wordsArray.length)
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (wordsArray[i] === " ") {
+      morseArray[i] = "";
+    } else {
+      morseArray[i] = CHAR_TO_MORSE[wordsArray[i]];
+    }
+  }
+  return morseArray.join(" ").replace(/  /g, "   ");
+  return morseWord;
+  //CHAR_TO_MORSE preloaded to convert characters into Morse code
+}
