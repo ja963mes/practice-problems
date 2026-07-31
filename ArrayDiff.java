@@ -1,9 +1,23 @@
-import java.util.*;
-import java.util.stream.*;
+public class CountIPAddresses {
 
-public class Kata {
-  public static int[] arrayDiff(int[] a, int[] b) {
-    Set<Integer> exclude = Arrays.stream(b).boxed().collect(Collectors.toSet());
-    return Arrays.stream(a).filter(x -> !exclude.contains(x)).toArray();
-  }
+    public static long convertToInt(String[] str) {
+        int n = 3;
+        long dummy = 0;
+        for (int i = 0; i < str.length; i++) {
+            dummy += Integer.parseInt(str[i]) * (long) Math.pow(256, n);
+            n--;
+        }
+        return dummy;
+    }
+
+    public static long ipsBetween(String start, String end) {
+        String[] beginningIPs = start.split("\\.");
+        String[] finalIPs = end.split("\\.");
+
+        long firstNum = convertToInt(finalIPs);
+        long secondNum = convertToInt(beginningIPs);
+
+        long result = firstNum - secondNum;
+        return result;
+    }
 }
